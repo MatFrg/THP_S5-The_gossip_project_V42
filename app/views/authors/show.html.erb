@@ -1,0 +1,26 @@
+<html>
+  <head>
+    <title>Author</title>
+  </head>
+  <body>
+
+		<h1>TheGossipProject#Author</h1>
+
+		<h2>Voici quelques information sur ton auteur préféré</h2>
+
+
+		<div class="show-element">Prénom</div>
+		<p><%= @author.first_name %></p>
+		<div class="show-element">Nom</div>
+		<p><%= @author.last_name %></p>
+		<div class="show-element">Description</div>
+		<p><%= @author.description %></p>
+		<div class="show-element">Email</div>
+		<p><%= @author.email %></p>
+		<div class="show-element">Age</div>
+		<p><%= @author.age %></p>
+		<div class="show-element">Ville</div>
+		<p><%= link_to City.find(@author.city_id).name, city_path(@author.city_id) %></p>
+
+  </body>
+</html>

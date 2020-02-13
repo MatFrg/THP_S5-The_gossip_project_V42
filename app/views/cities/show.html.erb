@@ -1,0 +1,37 @@
+<html>
+  <head>
+    <title>City</title>
+  </head>
+  <body>
+
+		<h1>TheGossipProject#Ville</h1>
+
+	
+
+		<div class="show-element"> Ville: </div>
+		<p> <%= @city.name %> </p>
+
+
+
+
+		<div class="card-columns">
+			<% @gossips.each do |gossip| %>
+				<% if User.find(gossip.user_id).city_id == @city.id %>
+	 				<div class="card">
+		    		<h5 class="card-title">Gossip <%= gossip.id %></h5>
+		    		<div class="card-text"><%= link_to gossip.title , gossip_path(gossip.id)%></div>
+		    		<div class="card-link"> <small> by <%= User.find(gossip.user_id).first_name %> </small></div>
+		    		<p> <%= button_to 'Like' , gossip_likes_path(gossip.id), method: :post, class: "btn btn-primary btn-sm" %> <%= gossip.likes.count %> </p>
+		    	
+		    	</div> 
+		    <% else %>
+	    	<% end %>
+	  	<% end %>
+	  </div>
+
+	    
+
+
+   </body>
+</html>
+

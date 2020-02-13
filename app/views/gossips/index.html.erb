@@ -1,0 +1,51 @@
+<html>
+  <head>
+    <title>Welcome</title>
+  </head>
+
+  		<% flash.each do |msg| %>
+	  <div class="alert alert-warning">
+	    <%= msg[1] %>
+	  </div>
+	<% end %>	
+
+  <body>
+		<h1>TheGossipProject#Welcome</h1>
+		
+
+	
+		  <div class="jumbotron p-4 p-md-5 text-white rounded bg-dark">
+    <div class="col-md-6 px-0">
+      <h1 class="display-4 font-italic">Gossip and dirty stories...</h1>
+      <p class="lead my-3">We want to know!</p>
+      <p class="lead mb-0"> <%= link_to "Tell your story", new_gossip_path, class: "text-white font-weight-bold"  %></p>
+    </div>
+  </div>
+
+
+	
+
+
+			<div class="card-columns">
+			<% @gossips.each do |gossip| %>
+				
+	 				<div class="card">
+		    		<h5 class="card-title">Gossip <%= gossip.id %></h5>
+		    		<div class="card-text"><%= link_to gossip.title , gossip_path(gossip.id)%></div>
+		    		<div class="card-link"> <small> by <%= User.find(gossip.user_id).first_name %> </small></div>
+		    		<p> <%= button_to 'Like' , gossip_likes_path(gossip.id), method: :post, class: "btn btn-primary btn-sm" %> <%= gossip.likes.count %> </p>
+		    	
+		    		
+		    	</div> 
+	  		
+	  		<% end %>
+	  		</div>
+
+
+
+
+
+
+   </body>
+</html>
+

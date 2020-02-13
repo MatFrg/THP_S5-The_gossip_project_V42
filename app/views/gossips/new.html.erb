@@ -1,0 +1,39 @@
+<html>
+  <head>
+    <title>New</title>
+    <style>
+    		*{ text-align: center }
+    </style>
+  </head>
+  <body>
+
+		<h1>Tell us all about it.</h1>
+
+		<%= form_tag url_for(action: 'create'), method: "post" do %>
+			<br />
+			<%= label_tag 'Title' %><br />
+	    <%= text_field_tag 'title'%>
+	    <br /> <br />
+	    <%= label_tag 'Gossip' %><br />
+	    <%= text_field_tag 'content' %>
+	    <br /> <br />
+	    <%= submit_tag "share it", class: "btn btn-primary btn-lg" %>
+    <% end %>
+
+
+    <% if @gossip.errors.any? %>
+    	<div class="alert alert-danger" role="alert">
+  			<p>Nous n'avons pas réussi à créer le potin pour la (ou les) raison(s) suivante(s) :</p>
+		  	<ul>
+			    <% @gossip.errors.full_messages.each do |message| %>
+			    <li><%= message %></li>
+			    <% end %>
+		  	</ul>
+  		</div>
+		<% end %>
+	
+
+		
+   </body>
+</html>
+    

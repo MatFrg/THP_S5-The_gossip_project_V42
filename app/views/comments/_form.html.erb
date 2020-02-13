@@ -1,0 +1,10 @@
+<h3>Post a Comment</h3>
+
+<%= form_for [ @display_gossip, @comment ] do |f| %>
+			<br />
+	    <%= label_tag 'Content' %><br />
+	    <%= text_field_tag 'content' %>
+	    <br /> <br />
+	   <%= f.submit 'Submit' %>
+
+    <% end %>

@@ -1,0 +1,31 @@
+<html>
+  <head>
+    <title>Edit Comment</title>
+    <style>
+    		*{ text-align: center }
+    </style>
+  </head>
+  <body>
+
+		<h1>TheGossipProject#Edit</h1>
+
+
+	   <%= form_tag url_for(action: 'update'), method: 'patch' do %>
+      <%= label_tag '' %>
+      <%= text_area_tag 'content', @comment.content %>
+      <br/>
+      <%= submit_tag "Envoyer" %>
+    <% end %>
+
+     <br/>
+
+  <center><%= link_to "supprimer", gossip_comment_path(@comment.id), method: :delete, class: "btn btn-danger" %></center>
+
+
+
+
+  <br/>
+		
+  </body>
+</html>
+    

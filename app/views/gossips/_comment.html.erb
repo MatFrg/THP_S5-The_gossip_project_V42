@@ -1,0 +1,12 @@
+  <% @comments.each do |com| %>
+  	<% if @display_gossip.id == com.gossip_id  %>
+  	<div> <small>Comment by</small> <%= User.find(com.user_id).first_name %></div>
+  	<div><small>Content</small> <%= com.content %></div>
+		<%= link_to "edit", edit_gossip_comment_path(com.id) %>
+			
+	  
+  	<% else %>
+  	<% end  %>
+  <% end  %>
+  <br/>
+

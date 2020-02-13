@@ -1,0 +1,29 @@
+<html>
+  <head>
+    <title>Edit</title>
+    <style>
+    		*{ text-align: center }
+    </style>
+  </head>
+  <body>
+
+		<h1>TheGossipProject#Edit</h1>
+
+
+	  <%= form_with model: @gossip do |f| %>
+			<div class="form-group">
+				<label>Titre</label>
+		  	<%= f.text_field :title, class: "form-control" %>
+			</div>
+			<div class="form-group">
+				<label>Contenu</label>
+		  	<%= f.text_field :content, class: "form-control" %>
+			</div>
+			<div class="form-group">
+				<button type="submit"> Update</button>
+		  </div>
+		<% end %>
+		
+  </body>
+</html>
+    

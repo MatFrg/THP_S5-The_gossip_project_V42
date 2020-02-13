@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>TheGossipProject</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <!-- Bootstrap core CSS -->
+ <!--  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"> -->
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+
+  <!-- HEADER -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="navbar-brand">Gossip</div>
+  <button class="navbar-toggler" type="none" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <div> <%= link_to "Home", gossips_path, class: "nav-link"  %> </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="http://localhost:3000/the_gossip_project/team">Team</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="http://localhost:3000/the_gossip_project/contact">Contact</a>
+      </li>
+    </ul>
+    </div>
+    
+    <div class="connection-item" >
+     <% if current_user %>
+              <li class="nav-item nav-link"> <%=current_user.first_name %> is connected
+                </li>
+              <li class="nav-item nav-link"><%= link_to "Log out", session_path(session[:user_id]), method: :delete %>
+              </li>
+            <% else %>
+              <li class="nav-item nav-link"><%= link_to "Log in", new_session_path %>
+              </li>
+              <li class="nav-item nav-link"><%= link_to "Sign up", new_user_path %>
+              </li>
+            <% end %>
+      </div>
+
+</nav>
+
+
+
+  </head>
+
+  <body>
+    <%= yield %>
+  </body>
+</html>

@@ -1,0 +1,31 @@
+<html>
+  <head>
+    <title>Welcome</title>
+  </head>
+
+  <body>
+		<h1>TheGossipProject#Welcome</h1>
+		<p> Bienvenue <%= @user %></p>
+		<p> Prêt à apprendre les derniers potins? ;)</p>
+		<p> <%= link_to "New Gossip", new_gossip_path %> </p>
+
+
+			<div class="card-columns">
+	<% @gossips.each do |gossip| %>
+				
+	 				<div class="card">
+		    		<h5 class="card-title"> <a href="http://localhost:3000/the_gossip_project/gossip/<%=gossip.id%>/"> Gossip <%= gossip.id %> </a> <%= link_to "Gossip", gossip_path(gossip.id) %> </h5>
+		    		<div class="card-text"><%= gossip.title %></div>
+		    		<div class="card-link"> <small> by <%= User.find(gossip.user_id).first_name %> </small></div>
+		    		
+		    	</div> 
+	  		
+	  		<% end %>
+	  		</div>
+			
+
+
+
+   </body>
+</html>
+
